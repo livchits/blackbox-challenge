@@ -1,0 +1,31 @@
+{
+  "name": "blackbox-challenge",
+  "version": "0.1.0",
+  "description": "React challenge for Blackbox Vision",
+  "main": "index.html",
+  "author": "Lucas Livchits <livchitsl@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react-refresh": "^1.1.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.0.5",
+    "sass": "^1.32.6",
+    "vite": "^2.0.0-beta.50"
+  }
+}
