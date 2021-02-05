@@ -15,9 +15,7 @@ function App() {
   if (questions) {
     return (
       <div className={style.container}>
-        <main className={style.card}>
-          <Question questionsData={questions} />
-        </main>
+        <Question questionsData={questions} />
       </div>
     );
   }
