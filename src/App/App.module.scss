@@ -5,3 +5,18 @@
   height: 100vh;
   background-color: antiquewhite;
 }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  height: 85%;
+  width: min(640px, 95%);
+  margin: auto;
+  color: var(--text-color-light);
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
