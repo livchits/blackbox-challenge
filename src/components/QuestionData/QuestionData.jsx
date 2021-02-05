@@ -11,8 +11,8 @@ function QuestionData() {
         <p className={style.text}>Difficulty: hard</p>
       </section>
       <section className={style.question}>
-        What type of dog is &#039;Handsome Dan&#039;, the mascot of Yale
-        University?
+        In the Nintendo DS game &#039;Ghost Trick: Phantom Detective&#039;, what
+        is the name of the hitman seen at the start of the game?
       </section>
     </>
   );
