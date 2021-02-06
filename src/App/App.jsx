@@ -2,8 +2,7 @@ import React from 'react';
 
 import Question from '../components/Question/Question';
 import getQuestions from '../api';
-
-import style from './App.module.scss';
+import Card from '../components/Card/Card';
 
 function App() {
   const [questions, setQuestions] = React.useState();
@@ -14,17 +13,13 @@ function App() {
 
   if (questions) {
     return (
-      <div className={style.container}>
+      <Card>
         <Question questionsData={questions} />
-      </div>
+      </Card>
     );
   }
 
-  return (
-    <div className={style.container}>
-      <main className={style.card}>Loading...</main>
-    </div>
-  );
+  return <Card>Loading...</Card>;
 }
 
 export default App;
