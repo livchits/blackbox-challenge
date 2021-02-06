@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
+import Card from '../components/Card/Card';
 import Question from '../components/Question/Question';
 import getQuestions from '../api';
-import Card from '../components/Card/Card';
 
 function App() {
   const [questions, setQuestions] = React.useState();
