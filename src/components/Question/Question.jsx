@@ -66,6 +66,8 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
 
 Question.propTypes = {
   questionsData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setPoints: PropTypes.func.isRequired,
+  setIsPlaying: PropTypes.func.isRequired,
 };
 
 export default Question;
