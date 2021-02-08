@@ -39,9 +39,10 @@ function Question({
   return (
     <>
       <section className={style.info}>
-        <p className={style.number}>{`Question ${currentQuestion + 1}/10`}</p>
-        <p className={style.text}>{`Category - ${category}`}</p>
-        <p className={style.text}>{`Difficulty: ${difficulty}`}</p>
+        <p className={style.number}>{`${currentQuestion + 1}/10`}</p>
+        <p className={style.text}>
+          {category} - <span className={style[difficulty]}>{difficulty}</span>
+        </p>
       </section>
       <section className={style.question}>{question}</section>
       <section className={style.answers}>

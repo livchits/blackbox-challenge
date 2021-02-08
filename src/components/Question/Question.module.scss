@@ -1,9 +1,9 @@
 .info {
-  color: var(--text-color-dark);
   border-bottom: 6px dotted var(--text-color-dark);
 }
 
 .number {
+  color: var(--text-color-dark);
   font-weight: 700;
   font-size: 1.75rem;
   margin: 1rem 0;
@@ -13,6 +13,22 @@
   font-weight: 500;
   font-size: 1rem;
   padding-bottom: 0.75rem;
+  color: var(--text-color-light);
+}
+
+.easy {
+  composes: text;
+  color: rgb(190, 219, 147);
+}
+
+.medium {
+  composes: text;
+  color: rgb(240, 240, 134);
+}
+
+.hard {
+  composes: text;
+  color: rgb(226, 133, 133);
 }
 
 .question {
