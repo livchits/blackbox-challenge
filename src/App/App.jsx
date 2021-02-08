@@ -17,6 +17,10 @@ function App() {
     return <Card>Loading...</Card>;
   }
 
+  if (status === 'rejected') {
+    return <Card>Sorry, something went wrong.</Card>;
+  }
+
   if (status === 'resolved') {
     return (
       <Card>
