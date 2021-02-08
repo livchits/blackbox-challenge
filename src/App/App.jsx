@@ -6,6 +6,9 @@ import getQuestions from '../api';
 
 function App() {
   const [questions, setQuestions] = React.useState();
+  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [points, setPoints] = React.useState(0);
+  const isPlaying = currentQuestion > questions?.length ? false : true;
 
   React.useEffect(() => {
     getQuestions().then((data) => setQuestions(data));
@@ -14,7 +17,12 @@ function App() {
   if (questions) {
     return (
       <Card>
-        <Question questionsData={questions} />
+        <Question
+          currentQuestion={currentQuestion}
+          questionsData={questions}
+          setCurrentQuestion={setCurrentQuestion}
+          setPoints={setPoints}
+        />
       </Card>
     );
   }
