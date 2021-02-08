@@ -7,6 +7,7 @@ function Question({
   currentQuestion,
   setCurrentQuestion,
   setPoints,
+  setIsPlaying,
 }) {
   const {
     category,
@@ -33,7 +34,11 @@ function Question({
           break;
       }
     }
-    setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+    if (currentQuestion === questionsData.length - 1) {
+      setIsPlaying(false);
+    } else {
+      setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+    }
   };
 
   return (
