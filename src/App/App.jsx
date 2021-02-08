@@ -5,9 +5,8 @@ import Question from '../components/Question/Question';
 import useQuestions from '../hooks/useQuestions';
 
 function App() {
-  const [currentQuestion, setCurrentQuestion] = React.useState(0);
-  const [points, setPoints] = React.useState(0);
   const [isPlaying, setIsPlaying] = React.useState(true);
+  const [points, setPoints] = React.useState(0);
   const { status, questions } = useQuestions(isPlaying);
 
   if (!isPlaying) {
@@ -22,9 +21,7 @@ function App() {
     return (
       <Card>
         <Question
-          currentQuestion={currentQuestion}
           questionsData={questions}
-          setCurrentQuestion={setCurrentQuestion}
           setIsPlaying={setIsPlaying}
           setPoints={setPoints}
         />

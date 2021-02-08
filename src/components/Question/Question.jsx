@@ -2,13 +2,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import style from './Question.module.scss';
-function Question({
-  questionsData,
-  currentQuestion,
-  setCurrentQuestion,
-  setPoints,
-  setIsPlaying,
-}) {
+function Question({ questionsData, setPoints, setIsPlaying }) {
+  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+
   const {
     category,
     difficulty,
