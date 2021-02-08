@@ -33,11 +33,10 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
           break;
       }
     }
-    if (currentQuestion === questionsData.length - 1) {
-      setIsPlaying(false);
-    } else {
-      setCurrentQuestion((currentQuestion) => currentQuestion + 1);
-    }
+
+    currentQuestion === questionsData.length - 1
+      ? setIsPlaying(false)
+      : setCurrentQuestion((currentQuestion) => currentQuestion + 1);
   };
 
   return (
