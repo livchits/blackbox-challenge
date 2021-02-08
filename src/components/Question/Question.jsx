@@ -1,7 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
+import byAlphabeticalOrder from '../../utils/byAlphabeticalOrder';
+
 import style from './Question.module.scss';
+
 function Question({ questionsData, setPoints, setIsPlaying }) {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
 
@@ -14,8 +17,8 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
     type,
   } = questionsData[currentQuestion];
 
-  const answers = [correctAnswer, ...incorrectAnswers].sort((a, b) =>
-    a.localeCompare(b),
+  const answers = [correctAnswer, ...incorrectAnswers].sort(
+    byAlphabeticalOrder,
   );
 
   const onAnswer = (answer) => {
