@@ -3,20 +3,23 @@ import * as React from 'react';
 import api from '../api';
 
 function useQuestions(isPlaying) {
-  const [status, setStatus] = React.useState('idle');
-  const [questions, setQuestions] = React.useState(null);
+  // const [status, setStatus] = React.useState('idle');
+  // const [questions, setQuestions] = React.useState(null);
+
+  const [{ status, questions }, setState] = React.useState({
+    status: 'idle',
+    questions: null,
+  });
 
   React.useEffect(() => {
     const getQuestions = async () => {
-      setStatus('pending');
+      setState((state) => ({ ...state, status: 'pending' }));
       const { data, error } = await api();
-      if (error) {
-        setStatus('rejected');
-      } else {
-        setQuestions(data);
-        setStatus('resolved');
-      }
+      error
+        ? setState((state) => ({ ...state, status: 'rejected' }))
+        : setState(() => ({ questions: data, status: 'resolved' }));
     };
+
     getQuestions();
   }, [isPlaying]);
 
