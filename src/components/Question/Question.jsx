@@ -7,7 +7,7 @@ import style from './Question.module.scss';
 
 function Question({ questionsData, setPoints, setIsPlaying }) {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
-
+  console.log(style);
   const {
     category,
     difficulty,
@@ -47,7 +47,9 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
           {category} - <span className={style[difficulty]}>{difficulty}</span>
         </p>
       </section>
-      <section className={style.question}>{question}</section>
+      <section className={style.questionContainer}>
+        <div className={style.question}>{question}</div>
+      </section>
       <section className={style.answers}>
         <ul>
           {answers.map((answer) => (

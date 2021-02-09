@@ -10,7 +10,7 @@ function App() {
   const { status, questions } = useQuestions(isPlaying);
 
   if (!isPlaying) {
-    return <Card>{`You won ${points} points`}</Card>;
+    return <Card>{`You won ${points} points!`}</Card>;
   }
 
   if (status === 'pending') {
