@@ -7,7 +7,7 @@ import style from './Question.module.scss';
 
 function Question({ questionsData, setPoints, setIsPlaying }) {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
-  console.log(style);
+
   const {
     category,
     difficulty,
