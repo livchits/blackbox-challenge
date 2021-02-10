@@ -11,7 +11,7 @@ async function api() {
       }
       throw new Error(response.statusText);
     })
-    .then((results) => results.map(parseData))
+    .then(({ results }) => results.map(parseData))
     .then((data) => ({ data, error: false }))
     .catch((error) => ({ error: true, message: error.message }));
 }
