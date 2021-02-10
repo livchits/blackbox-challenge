@@ -12,8 +12,7 @@ function Card({ children }) {
 }
 
 Card.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Card;
