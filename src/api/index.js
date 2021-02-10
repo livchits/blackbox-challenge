@@ -4,17 +4,16 @@ const QUESTIONS_AMOUNT = 10;
 const API_URL = `https://opentdb.com/api.php?amount=${QUESTIONS_AMOUNT}`;
 
 async function api() {
-  try {
-    const response = await fetch(API_URL);
-    if (response.ok) {
-      const { results } = await response.json();
-      const data = results.map(parseData);
-      return { data, error: !response.ok };
-    }
-    throw new Error(response.statusText);
-  } catch (error) {
-    return { error: true, message: error.message };
-  }
+  return fetch(API_URL)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then((results) => results.map(parseData))
+    .then((data) => ({ data, error: false }))
+    .catch((error) => ({ error: true, message: error.message }));
 }
 
 export default api;
