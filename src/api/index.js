@@ -8,7 +8,7 @@ async function api() {
     const response = await fetch(API_URL);
     if (response.ok) {
       const { results } = await response.json();
-      const data = results.map((question) => parseData(question));
+      const data = results.map(parseData);
       return { data, error: !response.ok };
     }
     throw new Error(response.statusText);
