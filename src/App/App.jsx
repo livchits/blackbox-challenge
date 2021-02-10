@@ -15,7 +15,7 @@ function App() {
     setIsPlaying(true);
     setPoints(0);
   };
-
+  //The game is finished, show points
   if (!isPlaying) {
     return (
       <Card>
@@ -26,15 +26,11 @@ function App() {
       </Card>
     );
   }
-
-  if (status === 'pending') {
-    return <Card>Loading...</Card>;
-  }
-
+  //The api returned an error
   if (status === 'rejected') {
     return <Card>Sorry, something went wrong.</Card>;
   }
-
+  //The api returned the requested data
   if (status === 'resolved') {
     return (
       <Card>
@@ -46,8 +42,8 @@ function App() {
       </Card>
     );
   }
-
-  return null;
+  //The request to the api is idle or pending
+  return <Card>Loading...</Card>;
 }
 
 export default App;
