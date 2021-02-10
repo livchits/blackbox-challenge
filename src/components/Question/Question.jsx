@@ -12,8 +12,8 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
     category,
     difficulty,
     question,
-    correct_answer: correctAnswer,
-    incorrect_answers: incorrectAnswers,
+    correctAnswer,
+    incorrectAnswers,
     type,
   } = questionsData[currentQuestion];
 
