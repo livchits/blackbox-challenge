@@ -19,7 +19,9 @@ function App() {
   if (!isPlaying) {
     return (
       <Card>
-        {`You won ${points} points!`}
+        {points
+          ? `You won ${points} points!`
+          : "You didn't answer any questions correctly"}
         <button className={style.restart} onClick={restartGame}>
           Play again
         </button>

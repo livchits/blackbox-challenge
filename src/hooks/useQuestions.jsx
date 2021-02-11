@@ -16,6 +16,7 @@ function useQuestions(isPlaying) {
         ? setState((state) => ({ ...state, status: 'rejected' }))
         : setState(() => ({ questions: data, status: 'resolved' }));
     };
+
     if (isPlaying) {
       getQuestions();
     }
