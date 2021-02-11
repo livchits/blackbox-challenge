@@ -21,7 +21,7 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
     byAlphabeticalOrder,
   );
 
-  const onAnswer = (answer) => {
+  const checkAnswer = (answer) => {
     if (answer === correctAnswer) {
       switch (type) {
         case 'multiple':
@@ -54,7 +54,10 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
         <ul>
           {answers.map((answer) => (
             <li key={answer}>
-              <button className={style.option} onClick={() => onAnswer(answer)}>
+              <button
+                className={style.option}
+                onClick={() => checkAnswer(answer)}
+              >
                 {answer}
               </button>
             </li>
