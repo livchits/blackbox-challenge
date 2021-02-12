@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 
 import byAlphabeticalOrder from '../../utils/byAlphabeticalOrder';
 import Button from '../Button/Button';
+import { ReactComponent as Checkmark } from '../../assets/checkmark.svg';
+import { ReactComponent as IconX } from '../../assets/icon-X.svg';
 
 import style from './Question.module.scss';
 
 function Question({ questionsData, setPoints, setIsPlaying }) {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [showResults, setShowResults] = React.useState('hidden');
 
   const {
     category,
@@ -34,10 +37,15 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
           break;
       }
     }
+    setShowResults('visible');
 
-    currentQuestion === questionsData.length - 1
-      ? setIsPlaying(false)
-      : setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+    setTimeout(() => {
+      if (currentQuestion === questionsData.length - 1) {
+        setIsPlaying(false);
+      }
+      setShowResults('hidden');
+      setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+    }, 500);
   };
 
   return (
@@ -49,17 +57,26 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
         </p>
       </section>
       <section className={style.questionContainer}>
-        <div className={style.question}>{question}</div>
+        <div>{question}</div>
       </section>
       <section className={style.answers}>
         <ul>
           {answers.map((answer) => (
             <li key={answer}>
-              <Button
-                handleClick={() => checkAnswer(answer)}
-                style={style.option}
-              >
-                {answer}
+              <Button handleClick={() => checkAnswer(answer)}>
+                <span>
+                  {answer}
+                  {answer === correctAnswer ? (
+                    <Checkmark
+                      height="18px"
+                      style={{
+                        visibility: showResults,
+                      }}
+                    />
+                  ) : (
+                    <IconX height="18px" style={{ visibility: showResults }} />
+                  )}
+                </span>
               </Button>
             </li>
           ))}
