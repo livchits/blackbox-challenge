@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import Card from '../components/Card/Card';
 import Question from '../components/Question/Question';
+import Button from '../components/Button/Button';
 import useQuestions from '../hooks/useQuestions';
 
 import style from './App.module.scss';
@@ -22,9 +23,9 @@ function App() {
         {points
           ? `You won ${points} points!`
           : "You didn't answer any questions correctly"}
-        <button className={style.restart} onClick={restartGame}>
+        <Button handleClick={restartGame} style={style.restart}>
           Play again
-        </button>
+        </Button>
       </Card>
     );
   }
