@@ -49,18 +49,13 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
         </p>
       </section>
       <section className={style.questionContainer}>
-        <div className={style.question}>{question}</div>
+        <div>{question}</div>
       </section>
       <section className={style.answers}>
         <ul>
           {answers.map((answer) => (
             <li key={answer}>
-              <Button
-                handleClick={() => checkAnswer(answer)}
-                style={style.option}
-              >
-                {answer}
-              </Button>
+              <Button handleClick={() => checkAnswer(answer)}>{answer}</Button>
             </li>
           ))}
         </ul>
