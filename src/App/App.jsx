@@ -13,16 +13,16 @@ function App() {
   const { status, questions } = useQuestions(isPlaying);
 
   const restartGame = () => {
-    setPoints(0);
+    if (points) {
+      setPoints(0);
+    }
     setIsPlaying(true);
   };
   //The game is finished, show points
   if (!isPlaying) {
     return (
       <Card>
-        {points
-          ? `You won ${points} points!`
-          : "You didn't answer any questions correctly"}
+        {points ? `You won ${points} points!` : 'You failed all the questions'}
         <Button handleClick={restartGame} style={style.restart}>
           Play again
         </Button>
