@@ -20,6 +20,11 @@ function useQuestions(isPlaying) {
     if (isPlaying) {
       getQuestions();
     }
+    return () =>
+      setState({
+        status: 'idle',
+        questions: null,
+      });
   }, [isPlaying]);
 
   return { status, questions };
