@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import byAlphabeticalOrder from '../../utils/byAlphabeticalOrder';
+import Button from '../Button/Button';
 
 import style from './Question.module.scss';
 
@@ -54,12 +55,12 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
         <ul>
           {answers.map((answer) => (
             <li key={answer}>
-              <button
-                className={style.option}
-                onClick={() => checkAnswer(answer)}
+              <Button
+                handleClick={() => checkAnswer(answer)}
+                style={style.option}
               >
                 {answer}
-              </button>
+              </Button>
             </li>
           ))}
         </ul>
