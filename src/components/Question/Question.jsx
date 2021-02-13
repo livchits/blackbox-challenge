@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 
 import byAlphabeticalOrder from '../../utils/byAlphabeticalOrder';
 import Button from '../Button/Button';
-import { ReactComponent as Checkmark } from '../../assets/checkmark.svg';
-import { ReactComponent as IconX } from '../../assets/icon-X.svg';
+import AnswerResult from '../AnswerResult/AnswerResult';
 
 import style from './Question.module.scss';
 
 function Question({ questionsData, setPoints, setIsPlaying }) {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
-  const [showResults, setShowResults] = React.useState('hidden');
+  const [showResults, setShowResults] = React.useState(false);
 
   const {
     category,
@@ -37,15 +36,16 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
           break;
       }
     }
-    setShowResults('visible');
+    setShowResults(true);
 
     setTimeout(() => {
       if (currentQuestion === questionsData.length - 1) {
         setIsPlaying(false);
+      } else {
+        setShowResults(false);
+        setCurrentQuestion((currentQuestion) => currentQuestion + 1);
       }
-      setShowResults('hidden');
-      setCurrentQuestion((currentQuestion) => currentQuestion + 1);
-    }, 500);
+    }, 750);
   };
 
   return (
@@ -64,19 +64,11 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
           {answers.map((answer) => (
             <li key={answer}>
               <Button handleClick={() => checkAnswer(answer)}>
-                <span>
-                  {answer}
-                  {answer === correctAnswer ? (
-                    <Checkmark
-                      height="18px"
-                      style={{
-                        visibility: showResults,
-                      }}
-                    />
-                  ) : (
-                    <IconX height="18px" style={{ visibility: showResults }} />
-                  )}
-                </span>
+                {answer}
+                <AnswerResult
+                  isCorrect={answer === correctAnswer}
+                  show={showResults}
+                />
               </Button>
             </li>
           ))}
