@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 
 import byAlphabeticalOrder from '../../utils/byAlphabeticalOrder';
 import Button from '../Button/Button';
+import AnswerResult from '../AnswerResult/AnswerResult';
 
 import style from './Question.module.scss';
 
 function Question({ questionsData, setPoints, setIsPlaying }) {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [showResults, setShowResults] = React.useState(false);
 
   const {
     category,
@@ -34,10 +36,16 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
           break;
       }
     }
+    setShowResults(true);
 
-    currentQuestion === questionsData.length - 1
-      ? setIsPlaying(false)
-      : setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+    setTimeout(() => {
+      if (currentQuestion === questionsData.length - 1) {
+        setIsPlaying(false);
+      } else {
+        setShowResults(false);
+        setCurrentQuestion((currentQuestion) => currentQuestion + 1);
+      }
+    }, 750);
   };
 
   return (
@@ -55,7 +63,13 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
         <ul>
           {answers.map((answer) => (
             <li key={answer}>
-              <Button handleClick={() => checkAnswer(answer)}>{answer}</Button>
+              <Button handleClick={() => checkAnswer(answer)}>
+                {answer}
+                <AnswerResult
+                  isCorrect={answer === correctAnswer}
+                  show={showResults}
+                />
+              </Button>
             </li>
           ))}
         </ul>
