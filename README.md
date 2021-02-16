@@ -36,7 +36,7 @@ Además de cumplir con las funcionalidades requeridas, la aplicación cuenta con
 
 Para utilizar el proyecto es necesario clonar el repositorio:
 
-`git clone http://url`
+`git clone https://github.com/livchits/blackbox-challenge.git`
 
 Instalar las dependencias:
 
