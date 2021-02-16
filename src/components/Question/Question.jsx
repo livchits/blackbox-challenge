@@ -2,14 +2,12 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import byAlphabeticalOrder from '../../utils/byAlphabeticalOrder';
-import Button from '../Button/Button';
-import AnswerResult from '../AnswerResult/AnswerResult';
+import Answer from '../Answer/Answer.jsx';
 
 import style from './Question.module.scss';
 
 function Question({ questionsData, setPoints, setIsPlaying }) {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
-  const [showResults, setShowResults] = React.useState(false);
 
   const {
     category,
@@ -36,13 +34,11 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
           break;
       }
     }
-    setShowResults(true);
 
     setTimeout(() => {
       if (currentQuestion === questionsData.length - 1) {
         setIsPlaying(false);
       } else {
-        setShowResults(false);
         setCurrentQuestion((currentQuestion) => currentQuestion + 1);
       }
     }, 750);
@@ -63,13 +59,11 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
         <ul>
           {answers.map((answer) => (
             <li key={answer}>
-              <Button handleClick={() => checkAnswer(answer)}>
-                {answer}
-                <AnswerResult
-                  isCorrect={answer === correctAnswer}
-                  show={showResults}
-                />
-              </Button>
+              <Answer
+                answer={answer}
+                checkAnswer={checkAnswer}
+                correctAnswer={correctAnswer}
+              />
             </li>
           ))}
         </ul>
