@@ -46,6 +46,8 @@ Y ejecutar:
 
 `npm run dev`
 
+La aplicación se puede probar en [el siguiente link](https://quiz-app.onrender.com/).
+
 ## Tecnologías utilizadas
 
 - React
