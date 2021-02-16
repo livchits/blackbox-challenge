@@ -28,6 +28,10 @@ siguiente manera:
 - El juego puede realizarse en React web o React Native.
 - Cada pregunta debe presentarse en una pantalla distinta de la aplicación.
 
+## Extras
+
+Además de cumplir con las funcionalidades requeridas, la aplicación cuenta con un botón que permite reiniciar el juego una vez finalizadas todas las preguntas.
+
 ## Uso
 
 Para utilizar el proyecto es necesario clonar el repositorio:
