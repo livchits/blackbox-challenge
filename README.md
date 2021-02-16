@@ -54,3 +54,5 @@ La aplicación se puede probar en [el siguiente link](https://quiz-app.onrender.
 - SASS
 - CSS Modules
 - Vite.js
+
+La UI está levemente inspirada en [este diseño](https://dribbble.com/shots/6508352-Quiz-App-UI-Oma).
