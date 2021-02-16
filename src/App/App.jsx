@@ -13,9 +13,7 @@ function App() {
   const { status, questions } = useQuestions(isPlaying);
 
   const restartGame = () => {
-    if (points) {
-      setPoints(0);
-    }
+    setPoints(0);
     setIsPlaying(true);
   };
   //The game is finished, show points
