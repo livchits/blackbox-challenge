@@ -1,9 +1,11 @@
 .show {
-  visibility: visible;
   height: 1.5rem;
+  opacity: 1;
+  transition: opacity 200ms ease-in;
 }
 
 .hidden {
-  visibility: hidden;
   height: 1.5rem;
+  opacity: 0;
+  transition: opacity 200ms ease-in;
 }
