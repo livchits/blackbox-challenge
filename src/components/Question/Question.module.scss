@@ -31,17 +31,14 @@
   color: rgb(226, 133, 133);
 }
 
-.question_container {
+.question {
   display: flex;
   align-items: center;
   height: 50%;
-
-  div {
-    font-size: clamp(1.625rem, 4vw, 2.75rem);
-    padding: 0 max(2rem, 4vw);
-    line-height: 1.25;
-    font-weight: 600;
-  }
+  font-size: clamp(1.625rem, 4vw, 2.75rem);
+  padding: 0 max(2rem, 4vw);
+  line-height: 1.25;
+  font-weight: 600;
 }
 
 .answers {

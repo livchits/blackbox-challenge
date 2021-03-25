@@ -52,9 +52,7 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
           {category} - <span className={style[difficulty]}>{difficulty}</span>
         </p>
       </section>
-      <section className={style.questionContainer}>
-        <div>{question}</div>
-      </section>
+      <section className={style.question}>{question}</section>
       <section className={style.answers}>
         <ul>
           {answers.map((answer) => (
