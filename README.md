@@ -2,6 +2,9 @@
 
 QuizBox Vision es un juego de preguntas y respuestas, como tantos otros. Sin embargo, en este juego, se ponen muchas más cosas en juego!! Bueno, en realidad no, pero quedaba bien para el resúmen.
 
+![imagen](https://user-images.githubusercontent.com/48001346/132267141-bb9779cd-3c67-4e54-a318-3d636436e2a2.png)
+
+
 ## Definición funcional
 
 El juego consiste en 10 preguntas las cuales pueden ser verdadero/falso o multiple choice.
