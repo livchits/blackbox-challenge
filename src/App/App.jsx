@@ -16,21 +16,7 @@ function App() {
     setPoints(0);
     setIsPlaying(true);
   };
-  //The game is finished, show points
-  if (!isPlaying) {
-    return (
-      <Card>
-        {points ? `You won ${points} points!` : 'You failed all the questions'}
-        <Button handleClick={restartGame} style={style.restart}>
-          Play again
-        </Button>
-      </Card>
-    );
-  }
-  //The api returned an error
-  if (status === 'rejected') {
-    return <Card>Sorry, something went wrong.</Card>;
-  }
+
   //The api returned the requested data
   if (status === 'resolved') {
     return (
@@ -43,6 +29,24 @@ function App() {
       </Card>
     );
   }
+
+  //The api returned an error
+  if (status === 'rejected') {
+    return <Card>Sorry, something went wrong.</Card>;
+  }
+
+  //The game is finished, show points
+  if (!isPlaying) {
+    return (
+      <Card>
+        {points ? `You won ${points} points!` : 'You failed all the questions'}
+        <Button handleClick={restartGame} style={style.restart}>
+          Play again
+        </Button>
+      </Card>
+    );
+  }
+
   //The request to the api is idle or pending
   return <Card>Loading...</Card>;
 }
