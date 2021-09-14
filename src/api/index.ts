@@ -14,7 +14,7 @@ async function api() {
     })
     .then(({ results }: { results: Question[] }) => results.map(parseData))
     .then((data) => ({ data, error: false }))
-    .catch((error) => ({ error: true, message: error.message }));
+    .catch((error) => ({ error: true, message: error.message, data: null }));
 }
 
 export default api;

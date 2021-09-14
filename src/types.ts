@@ -15,3 +15,8 @@ export interface ParsedQuestion {
   correctAnswer: string;
   incorrectAnswers: string[];
 }
+
+export interface QuestionsState {
+  status: 'idle' | 'pending' | 'resolved' | 'rejected';
+  questions: ParsedQuestion[] | null;
+}

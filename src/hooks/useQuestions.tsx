@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import api from '../api';
+import { QuestionsState } from '../types';
 
-function useQuestions(isPlaying) {
-  const [{ status, questions }, setState] = React.useState({
+function useQuestions(isPlaying: boolean): QuestionsState {
+  const [{ status, questions }, setState] = React.useState<QuestionsState>({
     status: 'idle',
     questions: null,
   });
