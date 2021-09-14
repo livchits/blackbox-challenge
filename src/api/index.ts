@@ -1,4 +1,5 @@
 import parseData from '../utils/parseData';
+import { Question } from '../types';
 
 const QUESTIONS_AMOUNT = 10;
 const API_URL = `https://opentdb.com/api.php?amount=${QUESTIONS_AMOUNT}`;
@@ -11,7 +12,7 @@ async function api() {
       }
       throw new Error(response.statusText);
     })
-    .then(({ results }) => results.map(parseData))
+    .then(({ results }: { results: Question[] }) => results.map(parseData))
     .then((data) => ({ data, error: false }))
     .catch((error) => ({ error: true, message: error.message }));
 }

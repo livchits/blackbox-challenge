@@ -1,6 +1,8 @@
 import { decode } from 'he';
 
-function parseData(questionData) {
+import { Question, ParsedQuestion } from './../types';
+
+function parseData(questionData: Question): ParsedQuestion {
   const {
     category,
     difficulty,
