@@ -1,4 +1,4 @@
-function byAlphabeticalOrder(word, nextWord) {
+function byAlphabeticalOrder(word: string, nextWord: string): number {
   return word.localeCompare(nextWord);
 }
 
