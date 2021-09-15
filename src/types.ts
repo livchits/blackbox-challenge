@@ -10,7 +10,7 @@ export interface Question {
 export interface ParsedQuestion {
   category: string;
   type: string;
-  difficulty: string;
+  difficulty: 'easy' | 'medium' | 'hard';
   question: string;
   correctAnswer: string;
   incorrectAnswers: string[];

@@ -1,12 +1,20 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 import byAlphabeticalOrder from '../../utils/byAlphabeticalOrder';
-import Answer from '../Answer/Answer.jsx';
+import Answer from '../Answer/Answer';
+import { ParsedQuestion } from '../../types';
 
 import style from './Question.module.scss';
 
-function Question({ questionsData, setPoints, setIsPlaying }) {
+type CalculatePoints = (points: number) => number;
+
+interface QuestionProps {
+  questionsData: ParsedQuestion[];
+  setPoints: (calculatePoints: CalculatePoints) => void;
+  setIsPlaying: (isPlaying: boolean) => void;
+}
+
+function Question({ questionsData, setPoints, setIsPlaying }: QuestionProps) {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
 
   const {
@@ -22,7 +30,7 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
     byAlphabeticalOrder,
   );
 
-  const checkAnswer = (answer) => {
+  const checkAnswer = (answer: string) => {
     if (answer === correctAnswer) {
       switch (type) {
         case 'multiple':
@@ -69,11 +77,5 @@ function Question({ questionsData, setPoints, setIsPlaying }) {
     </>
   );
 }
-
-Question.propTypes = {
-  questionsData: PropTypes.arrayOf(PropTypes.object).isRequired,
-  setPoints: PropTypes.func.isRequired,
-  setIsPlaying: PropTypes.func.isRequired,
-};
 
 export default Question;

@@ -18,7 +18,7 @@ function App() {
   };
 
   //The api returned the requested data
-  if (status === 'resolved') {
+  if (status === 'resolved' && questions) {
     return (
       <Card>
         <Question
