@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface ButtonProps {
-  style: string;
+  style?: string;
   handleClick: React.MouseEventHandler;
   children: React.ReactNode;
 }
