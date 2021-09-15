@@ -6,15 +6,15 @@ import { ParsedQuestion } from '../../types';
 
 import style from './Question.module.scss';
 
-type CalculatePoints = (points: number) => number;
+// type CalculatePoints = (points: number) => number;
 
 interface QuestionProps {
   questionsData: ParsedQuestion[];
-  setPoints: (calculatePoints: CalculatePoints) => void;
+  addPoints: (newPoints: number) => void;
   setIsPlaying: (isPlaying: boolean) => void;
 }
 
-function Question({ questionsData, setPoints, setIsPlaying }: QuestionProps) {
+function Question({ questionsData, addPoints, setIsPlaying }: QuestionProps) {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
 
   const {
@@ -34,11 +34,11 @@ function Question({ questionsData, setPoints, setIsPlaying }: QuestionProps) {
     if (answer === correctAnswer) {
       switch (type) {
         case 'multiple':
-          setPoints((points) => points + 10);
+          addPoints(10);
           break;
 
         case 'boolean':
-          setPoints((points) => points + 5);
+          addPoints(5);
           break;
       }
     }

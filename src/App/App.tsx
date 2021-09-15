@@ -17,6 +17,9 @@ function App() {
     setIsPlaying(true);
   };
 
+  const addPoints = (points: number) =>
+    setPoints((prevPoints) => prevPoints + points);
+
   //The api returned the requested data
   if (status === 'resolved' && questions) {
     return (
@@ -24,7 +27,7 @@ function App() {
         <Question
           questionsData={questions}
           setIsPlaying={setIsPlaying}
-          setPoints={setPoints}
+          addPoints={addPoints}
         />
       </Card>
     );
