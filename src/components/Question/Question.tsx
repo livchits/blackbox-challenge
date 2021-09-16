@@ -2,14 +2,12 @@ import * as React from 'react';
 
 import byAlphabeticalOrder from '../../utils/byAlphabeticalOrder';
 import Answer from '../Answer/Answer';
-import { ParsedQuestion } from '../../types';
+import { Question } from '../../types';
 
 import style from './Question.module.scss';
 
-// type CalculatePoints = (points: number) => number;
-
 interface QuestionProps {
-  questionsData: ParsedQuestion[];
+  questionsData: Question[];
   addPoints: (newPoints: number) => void;
   setIsPlaying: (isPlaying: boolean) => void;
 }
@@ -21,17 +19,17 @@ function Question({ questionsData, addPoints, setIsPlaying }: QuestionProps) {
     category,
     difficulty,
     question,
-    correctAnswer,
-    incorrectAnswers,
+    correct_answer,
+    incorrect_answers,
     type,
   } = questionsData[currentQuestion];
 
-  const answers = [correctAnswer, ...incorrectAnswers].sort(
+  const answers = [correct_answer, ...incorrect_answers].sort(
     byAlphabeticalOrder,
   );
 
   const checkAnswer = (answer: string) => {
-    if (answer === correctAnswer) {
+    if (answer === correct_answer) {
       switch (type) {
         case 'multiple':
           addPoints(10);
@@ -68,7 +66,7 @@ function Question({ questionsData, addPoints, setIsPlaying }: QuestionProps) {
               <Answer
                 answer={answer}
                 checkAnswer={checkAnswer}
-                correctAnswer={correctAnswer}
+                correctAnswer={correct_answer}
               />
             </li>
           ))}
