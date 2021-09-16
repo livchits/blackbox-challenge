@@ -1,27 +1,19 @@
 import { decode } from 'he';
 
-import { Question, ParsedQuestion } from './../types';
+import { Question } from './../types';
 
-function parseData(questionData: Question): ParsedQuestion {
-  const {
-    category,
-    difficulty,
-    question,
-    correct_answer: correctAnswer,
-    incorrect_answers: incorrectAnswers,
-    type,
-  } = questionData;
+function parseData(questionData: Question): Question {
+  const { question, correct_answer, incorrect_answers } = questionData;
+
   const parsedQuestion = decode(question);
-  const parsedCorrectAnswer = decode(correctAnswer);
-  const parsedIncorrectAnswers = incorrectAnswers.map((text) => decode(text));
+  const parsedCorrectAnswer = decode(correct_answer);
+  const parsedIncorrectAnswers = incorrect_answers.map((text) => decode(text));
 
   return {
-    category,
-    difficulty,
+    ...questionData,
     question: parsedQuestion,
-    correctAnswer: parsedCorrectAnswer,
-    incorrectAnswers: parsedIncorrectAnswers,
-    type,
+    correct_answer: parsedCorrectAnswer,
+    incorrect_answers: parsedIncorrectAnswers,
   };
 }
 
