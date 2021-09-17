@@ -4,7 +4,6 @@ QuizBox Vision es un juego de preguntas y respuestas, como tantos otros. Sin emb
 
 ![imagen](https://user-images.githubusercontent.com/48001346/132267141-bb9779cd-3c67-4e54-a318-3d636436e2a2.png)
 
-
 ## Definición funcional
 
 El juego consiste en 10 preguntas las cuales pueden ser verdadero/falso o multiple choice.
@@ -54,6 +53,7 @@ La aplicación se puede probar en [el siguiente link](https://quiz-app.onrender.
 ## Tecnologías utilizadas
 
 - React
+- TypeScript
 - SASS
 - CSS Modules
 - Vite.js
