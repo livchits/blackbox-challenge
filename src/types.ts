@@ -1,4 +1,4 @@
-export interface Question {
+export interface QuestionData {
   category: string;
   type: string;
   difficulty: 'easy' | 'medium' | 'hard';
@@ -9,5 +9,5 @@ export interface Question {
 
 export interface QuestionsState {
   status: 'idle' | 'pending' | 'resolved' | 'rejected';
-  questions: Question[] | null;
+  questions: QuestionData[] | null;
 }

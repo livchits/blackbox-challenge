@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import byAlphabeticalOrder from '../../utils/byAlphabeticalOrder';
 import Answer from '../Answer/Answer';
-import { Question } from '../../types';
+import { QuestionData } from '../../types';
 
 import style from './Question.module.scss';
 
 interface QuestionProps {
-  questionsData: Question[];
+  questionsData: QuestionData[];
   addPoints: (newPoints: number) => void;
   setIsPlaying: (isPlaying: boolean) => void;
 }
