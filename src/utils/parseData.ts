@@ -1,8 +1,8 @@
 import { decode } from 'he';
 
-import { Question } from './../types';
+import { QuestionData } from './../types';
 
-function parseData(questionData: Question): Question {
+function parseData(questionData: QuestionData): QuestionData {
   const { question, correct_answer, incorrect_answers } = questionData;
 
   const parsedQuestion = decode(question);
