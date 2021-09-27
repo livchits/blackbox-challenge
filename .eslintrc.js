@@ -22,7 +22,7 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
-  parser: '@typescript-eslint/parse',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -48,4 +48,12 @@ module.exports = {
     'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'error',
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': ['off'],
+      },
+    },
+  ],
 };

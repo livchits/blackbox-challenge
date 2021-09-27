@@ -25,9 +25,9 @@ function App() {
     return (
       <Card>
         <Question
+          addPoints={addPoints}
           questionsData={questions}
           setIsPlaying={setIsPlaying}
-          addPoints={addPoints}
         />
       </Card>
     );
